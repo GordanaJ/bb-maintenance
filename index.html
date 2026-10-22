@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FAF9F5">
+<title>Maintenance</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #FAF9F5; }
+  iframe { border: 0; width: 100%; height: 100vh; height: 100dvh; display: block; }
+  p { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #2A2320; padding: 24px; }
+</style>
+</head>
+<body>
+<script>
+// Holds the maintenance page so it opens without Google's notice bar.
+// The private key is read from the part of the link after "#", which browsers never send to this website.
+(function () {
+  var APP = 'https://script.google.com/macros/s/AKfycbyD6wf8CBkETkcDEBC5S7h-C4yqrp1tSdwosu1OR3x_8NM1aiXddm4a7w8smNq1oppHIg/exec';
+  var m = /(?:^#|&)k=([A-Za-z0-9-]{8,80})/.exec(location.hash);
+  if (!m) { document.body.innerHTML = '<p>This link is not active.</p>'; return; }
+  var f = document.createElement('iframe');
+  f.title = 'Maintenance';
+  f.referrerPolicy = 'no-referrer';
+  f.src = APP + '?app=m&k=' + encodeURIComponent(m[1]);
+  document.body.appendChild(f);
+})();
+</script>
+</body>
+</html>
